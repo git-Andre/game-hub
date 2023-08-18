@@ -8,8 +8,8 @@ interface Genre {
 }
 
 const useGenres = () => {
-  const { data } = useData<Genre>('/genres');
-  return { genres: data };
+  const { data ,isLoading, error} = useData<Genre>('/genres');
+  return { genres: data, isLoading, error };
 
 }
 
