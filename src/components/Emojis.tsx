@@ -1,0 +1,22 @@
+import bullsEye from '../assets/emojis/bulls-eye.webp';
+import thumbsUp from '../assets/emojis/thumbs-up.webp';
+import meh from '../assets/emojis/meh.webp';
+import { Image, ImageProps } from "@chakra-ui/react";
+
+interface EmojisProps {
+  rating: number
+}
+
+export const Emojis = ( { rating }: EmojisProps ) => {
+  if (rating < 3) return null;
+
+  const emojiMap: { [key: number]: ImageProps } = {
+    3: { src: meh, alt: 'meh', boxSize: '25px' },
+    4: { src: thumbsUp, alt: 'recommended', boxSize: '25px' },
+    5: { src: bullsEye, alt: 'exceptional', boxSize: '30px' },
+  }
+  console.log({ ...emojiMap[rating] });
+  return (
+    <Image {...emojiMap[rating]} marginTop={1}/>
+  );
+};

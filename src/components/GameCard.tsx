@@ -4,6 +4,7 @@ import { PlatformIconList } from "./PlatformIconList.tsx";
 import { CriticScore } from "../CriticScore.tsx";
 import getCroppedImageUrl from "../services/image-url.ts";
 import { GameCardContainer } from "./GameCardContainer.tsx";
+import { Emojis } from "./Emojis.tsx";
 
 interface GameCardProps {
   game: Game;
@@ -21,6 +22,7 @@ export const GameCard = ( { game }: GameCardProps ) => {
           <CriticScore score={game.metacritic}/>
         </HStack>
         <Heading fontSize='2xl' marginTop={3}>{game.name}</Heading>
+        <Emojis rating={game.rating_top} />
       </CardBody>
     </Card>
   </GameCardContainer>);
