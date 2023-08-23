@@ -15,7 +15,6 @@ export const Emojis = ( { rating }: EmojisProps ) => {
     4: { src: thumbsUp, alt: 'recommended', boxSize: '25px' },
     5: { src: bullsEye, alt: 'exceptional', boxSize: '30px' },
   }
-  console.log({ ...emojiMap[rating] });
   return (
     <Image {...emojiMap[rating]} marginTop={1}/>
   );
