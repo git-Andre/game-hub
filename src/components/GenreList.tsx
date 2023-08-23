@@ -1,5 +1,5 @@
 import useGenres, { Genre } from "../hooks/useGenres.ts";
-import { Button, HStack, Image, List, ListItem } from "@chakra-ui/react";
+import { Button, Heading, HStack, Image, List, ListItem } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url.ts";
 import { GameCardSkeleton } from "../GameCardSkeleton.tsx";
 
@@ -17,12 +17,19 @@ export const GenreList = ( { selectedGenre, onSelectGenre }: GenreListProps ) =>
 
   if (isLoading) return skeletons.map(skeleton => <GameCardSkeleton height='50px' key={skeleton}/>)
 
-  return <><List>
+  return <>
+    <Heading marginY={3}>Genres</Heading>
+    <List>
     {genres.map(genre => <ListItem key={genre.id} paddingY='5px'>
       <HStack>
-        <Image boxSize='32px' borderRadius={8} src={getCroppedImageUrl(genre.image_background)}/>
+        <Image boxSize='32px'
+               objectFit='cover'
+               borderRadius={8}
+               src={getCroppedImageUrl(genre.image_background)}/>
         <Button onClick={() => onSelectGenre(genre)}
                 variant='link'
+                whiteSpace='normal'
+                textAlign='left'
                 fontWeight={genre.id === selectedGenre?.id ? 'bold' : 'normal'}
                 fontSize='lg'>{genre.name}</Button>
       </HStack>

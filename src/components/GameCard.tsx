@@ -12,7 +12,9 @@ interface GameCardProps {
 export const GameCard = ( { game }: GameCardProps ) => {
   return (<GameCardContainer>
     <Card>
-      <Image src={getCroppedImageUrl(game.background_image)}/>
+      <Image
+        objectFit='cover'
+        src={getCroppedImageUrl(game.background_image)}/>
       <CardBody>
         <Heading fontSize='2xl'>{game.name}</Heading>
         <HStack justifyContent='space-between'>
