@@ -1,14 +1,8 @@
 import useData from "./useData.ts";
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-
-}
+import { Platform } from "./useGames.ts";
 
 const usePlatforms = () => {
-  const { data ,isLoading, error} = useData<Platform>('/platforms/lists/parents');
+  const { data, isLoading, error } = useData<Platform>('/platforms/lists/parents');
   return { platforms: data, isLoading, error };
 
 }
